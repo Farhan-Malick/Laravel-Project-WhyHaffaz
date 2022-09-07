@@ -2,11 +2,11 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand mr-auto text-left d-md-block" href="{{ url('homefrontArabic') }}"><img src="{{ url('public/user/assets/img/haffez-logo.png') }}" class="img-fluid logo" alt=""></a>
+    <a class="navbar-brand mr-auto text-left d-md-block" href="#"><img src="{{ url('public/user/assets/img/haffez-logo.png') }}" class="img-fluid logo" alt=""></a>
 
     <div class="container">
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <div class="collapse navbar-collapse">
             <div class="d-block mr-auto">
                 <div class="mb-3">
                     <ul class="navbar-nav mr-auto">
@@ -18,11 +18,10 @@
                         </li>
                     </ul>
                 </div>
-
                 <div>
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"  id="arabicNav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('#slider') }}">الرئيسية <span class="sr-only">(current)</span></a>
+                            <a class="nav-link " href="{{ url('#slider') }}">الرئيسية</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('#about') }}">من نحن</a>

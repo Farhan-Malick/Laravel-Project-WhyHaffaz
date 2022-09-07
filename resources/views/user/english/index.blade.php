@@ -23,7 +23,7 @@
             <div class="carousel-item active">
                 
             
-                <img src="{{ asset('storage/app/public/post/home/'.$list->image) }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('storage/app/public/post/home/'.$list->image) }}" class="d-block w-100 responsive  " alt="...">
                 <div class="title">
                     <div class="container">
                         <div class="row">

@@ -24,8 +24,8 @@ class WhyhaffezController extends Controller
     {
       //validation
       $request->validate([
-        'heading'      => 'required |min:15|max:30',
-        'description'  => 'required |min:100|max:146',
+        'heading'      => 'required |max:30',
+        'description'  => 'required |max:146',
         'image'        => 'required |mimes: jpg,jpeg,png',
       ]);
   
@@ -62,8 +62,8 @@ class WhyhaffezController extends Controller
     {
       //validation
       $request->validate([
-        'heading'      => 'required |min:15|max:30',
-        'description'  => 'required |min:100|max:146',
+        'heading'      => 'required |max:30',
+        'description'  => 'required |max:146',
         'image'        => 'mimes: jpg,jpeg,png',
       ]);
       //array

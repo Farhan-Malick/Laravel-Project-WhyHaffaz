@@ -33,87 +33,110 @@ use App\Http\Controllers\arabicadmin\ArabicOurSheikh;
 use App\Http\Controllers\arabicadmin\ArabicOurSheikhSecondSection;
 use App\Http\Controllers\arabicadmin\ArabicContact;
 use App\Http\Controllers\arabicadmin\ArabicFooter;
-
-
-        Route::get('/admin/login_submit',[Admin_auth::class,'login_submit']);
+use App\Http\Controllers\RegController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\user\loginController;
+use App\Http\Controllers\TLoginController;
+use App\Http\Controllers\TRegisterController;
+use App\Http\Controllers\user\userauth;
+use App\Http\Controllers\admin\userdetail\userDetailController;
+use App\Http\Controllers\admin\teacher\TeacherController;
+use App\Http\Controllers\admin\appointment\AppointmentController;
+// ===========================================================================================
+Route::group(['middleware' =>['admin_auth']], function()
+{
+    // ADMIN SITE HANDLE USER-DETAILS 
+        Route::get('/admin/User-Detail',[userDetailController::class,'user_detail'])->name('user-booking');
+        Route::get('/admin/User-Detail{id}',[userDetailController::class,'delete']);
+        Route::post('/admin/User-Detail/{id}',[userDetailController::class,'update']);
+        Route::get('/admin/Edit/User/{id}',[userDetailController::class,'edit']);
+    // ADMIN SITE HANDLE TEACHERS
+        Route::get('admin/Teachers',[TeacherController::class,'teachers_home'])->name('All-Teachers');
+        Route::get('admin/Add-Teachers',[TeacherController::class,'index'])->name('Add-Teacher');
+        Route::post('admin/Add-Teachers',[TeacherController::class,'submit']);
+        Route::get('/admin/Teachers/{id}',[TeacherController::class,'delete']);
+        Route::post('/admin/Teachers/{id}',[TeacherController::class,'update']);
+        Route::get('/admin/Edit/Teacher/{id}',[TeacherController::class,'edit']);
+    // ADMIN SITE HANDLE TEACHERS APPOINTMENTS
+        Route::get('/admin/Appointments/List',[AppointmentController::class,'index'])->name('All-Appoints');
+        Route::get('admin/Add_Appointments',[AppointmentController::class,'Addindex'])->name('add');
+        Route::Post('admin/Added-Appointments',[AppointmentController::class,'appointment']);
+        Route::get('/admin/Appointments/List/{id}',[AppointmentController::class,'delete']);
+        Route::post('/admin/Appointments/List/{id}',[AppointmentController::class,'update']);
+        Route::get('/admin/Edit/{id}',[AppointmentController::class,'edit']);
+});
 
         Route::view('/admin/login','admin.login');
-
+        Route::post('/admin/login_submit',[Admin_auth::class,'login_submit']);         
+        Route::group(['middleware' =>['admin_auth']], function()
+        {   // Admin Routes
+            Route::get('/adminhome',[Post::class,'listing']);  
+        });
         Route::get('/admin/logout', function () {
             session()->forget('BLOG_USER_ID');
             return redirect('/admin/login');
         });
-
+        
         Route::group(['middleware' =>['admin_auth']], function()
         {
-            // Admin Routes
-            Route::group(['namespace' => 'admin'],function(){
-            Route::get('/admin',[Post::class,'listing']);  
-            
-             });    
-        });
-       
-
-    Route::group(['middleware' =>['admin_auth']], function()
-    {
-         //Home Section Routes
-         Route::get('/admin/post/list',[Post::class,'listing']);
-         Route::view('/admin/post/add','admin.post.add');
-         Route::post('/admin/post/submit',[Post::class,'submit']);
-         Route::get('/admin/post/delete/{id}',[Post::class,'delete']);
-         Route::get('/admin/post/edit/{id}',[Post::class,'edit']);
-         Route::post('/admin/post/update/{id}',[Post::class,'update']);
-         //About Section Routes
-         Route::view('/admin/post/about/about','admin.post.about.about');
-         Route::get('/admin/post/about/aboutlist',[AboutController::class,'about_listing']);
-         Route::post('/admin/post/about/aboutsubmit',[AboutController::class,'about_submit']);
-         Route::get('/admin/post/delete{id}',[AboutController::class,'about_delete']);
-         Route::get('/admin/post/about/aboutedit/{id}',[AboutController::class,'about_edit']);
-         Route::post('/admin/post/about/update/{id}',[AboutController::class,'about_update']);
-        //Whyhaffez Section 1 Routes
-        Route::view('/admin/post/whyhaffez/whyhaffezadd','admin.post.whyhaffez.whyhaffezadd');
-        Route::get('/admin/post/whyhaffez/whyhaffezlist',[WhyhaffezController::class,'whyhaffez_listing']);
-        Route::post('/admin/post/whyhaffez/whyhaffezsubmit',[WhyhaffezController::class,'whyhaffez_submit']);
-        Route::get('/admin/post/whyhaffez/delete{id}',[WhyhaffezController::class,'whyhaffez_delete']);
-        Route::get('/admin/post/whyhaffez/whyhaffezedit/{id}',[WhyhaffezController::class,'whyhaffez_edit']);
-        Route::post('/admin/post/whyhaffez/update/{id}',[WhyhaffezController::class,'whyhaffez_update']);
-        //Whyhaffez Section 2 Routes
-        Route::view('/admin/post/whyhaffez/second_whyhaffez/whyhaffezadd','admin.post.whyhaffez.second_whyhaffez.whyhaffezadd');
-        Route::post('/admin/post/whyhaffez/second_whyhaffez/whyhaffezsubmit2',[WhyhaffezSectionTwo::class,'whyhaffez_submit']);
-        Route::get('/admin/second_whyhaffez/delete{id}',[WhyhaffezSectionTwo::class,'whyhaffez_delete']);
-        Route::get('/admin/post/whyhaffez/second_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionTwo::class,'whyhaffez_edit']);
-        Route::post('/admin/post/whyhaffez/second_whyhaffez/update/{id}',[WhyhaffezSectionTwo::class,'whyhaffez_update']);
-        //Whyhaffez Section 3 Routes
-        Route::view('/admin/post/whyhaffez/third_whyhaffez/whyhaffezadd','admin.post.whyhaffez.third_whyhaffez.whyhaffezadd');
-        Route::post('/admin/post/whyhaffez/third_whyhaffez/whyhaffezsubmit3',[WhyhaffezSectionThree::class,'whyhaffez_submit']);
-        Route::get('/admin/third_whyhaffez/delete{id}',[WhyhaffezSectionThree::class,'whyhaffez_delete']);
-        Route::get('/admin/post/whyhaffez/third_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionThree::class,'whyhaffez_edit']);
-        Route::post('/admin/post/whyhaffez/third_whyhaffez/update/{id}',[WhyhaffezSectionThree::class,'whyhaffez_update']);
-        //Whyhaffez Section 4 Routes
-        Route::view('/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezadd','admin.post.whyhaffez.fourth_whyhaffez.whyhaffezadd');
-        Route::post('/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezsubmit4',[WhyhaffezSectionFour::class,'whyhaffez_submit']);
-        Route::get('/admin/fourth_whyhaffez/delete{id}',[WhyhaffezSectionFour::class,'whyhaffez_delete']);
-        Route::get('/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionFour::class,'whyhaffez_edit']);
-        Route::post('/admin/post/whyhaffez/fourth_whyhaffez/update/{id}',[WhyhaffezSectionFour::class,'whyhaffez_update']);
-        //Whyhaffez Section 5 Routes
-        Route::view('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezadd','admin.post.whyhaffez.fifth_whyhaffez.whyhaffezadd');
-        Route::post('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezsubmit5',[WhyhaffezSectionFive::class,'whyhaffez_submit']);
-        Route::get('/admin/fifth_whyhaffez/delete{id}',[WhyhaffezSectionFive::class,'whyhaffez_delete']);
-        Route::get('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionFive::class,'whyhaffez_edit']);
-        Route::post('/admin/post/whyhaffez/fifth_whyhaffez/update/{id}',[WhyhaffezSectionFive::class,'whyhaffez_update']);
-        //Whyhaffez Section 6 Routes
-        Route::view('/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezadd','admin.post.whyhaffez.sixth_whyhaffez.whyhaffezadd');
-        Route::post('/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezsubmit6',[WhyhaffezSectionSixth::class,'whyhaffez_submit']);
-        Route::get('/admin/sixth_whyhaffez/delete{id}',[WhyhaffezSectionSixth::class,'whyhaffez_delete']);
-        Route::get('/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionSixth::class,'whyhaffez_edit']);
-        Route::post('/admin/post/whyhaffez/sixth_whyhaffez/update/{id}',[WhyhaffezSectionSixth::class,'whyhaffez_update']);
-        //Whyhaffez Section 7 Routes
-        Route::view('/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezadd','admin.post.whyhaffez.seventh_whyhaffez.whyhaffezadd');
-        Route::post('/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezsubmit7',[WhyhaffezSectionSeventh::class,'whyhaffez_submit']);
-        Route::get('/admin/seventh_whyhaffez/delete{id}',[WhyhaffezSectionSeventh::class,'whyhaffez_delete']);
-        Route::get('/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionSeventh::class,'whyhaffez_edit']);
-        Route::post('/admin/post/whyhaffez/seventh_whyhaffez/update/{id}',[WhyhaffezSectionSeventh::class,'whyhaffez_update']);
-    }); 
+            //Home Section Routes
+            Route::get('/admin/post/list',[Post::class,'listing']);
+            Route::view('/admin/post/add','admin.post.add');
+            Route::post('/admin/post/submit',[Post::class,'submit']);
+            Route::get('/admin/post/delete/{id}',[Post::class,'delete']);
+            Route::get('/admin/post/edit/{id}',[Post::class,'edit']);
+            Route::post('/admin/post/update/{id}',[Post::class,'update']);
+            //About Section Routes
+            Route::view('/admin/post/about/about','admin.post.about.about');
+            Route::get('/admin/post/about/aboutlist',[AboutController::class,'about_listing']);
+            Route::post('/admin/post/about/aboutsubmit',[AboutController::class,'about_submit']);
+            Route::get('/admin/post/delete{id}',[AboutController::class,'about_delete']);
+            Route::get('/admin/post/about/aboutedit/{id}',[AboutController::class,'about_edit']);
+            Route::post('/admin/post/about/update/{id}',[AboutController::class,'about_update']);
+            //Whyhaffez Section 1 Routes
+            Route::view('/admin/post/whyhaffez/whyhaffezadd','admin.post.whyhaffez.whyhaffezadd');
+            Route::get('/admin/post/whyhaffez/whyhaffezlist',[WhyhaffezController::class,'whyhaffez_listing']);
+            Route::post('/admin/post/whyhaffez/whyhaffezsubmit',[WhyhaffezController::class,'whyhaffez_submit']);
+            Route::get('/admin/post/whyhaffez/delete{id}',[WhyhaffezController::class,'whyhaffez_delete']);
+            Route::get('/admin/post/whyhaffez/whyhaffezedit/{id}',[WhyhaffezController::class,'whyhaffez_edit']);
+            Route::post('/admin/post/whyhaffez/update/{id}',[WhyhaffezController::class,'whyhaffez_update']);
+            //Whyhaffez Section 2 Routes
+            Route::view('/admin/post/whyhaffez/second_whyhaffez/whyhaffezadd','admin.post.whyhaffez.second_whyhaffez.whyhaffezadd');
+            Route::post('/admin/post/whyhaffez/second_whyhaffez/whyhaffezsubmit2',[WhyhaffezSectionTwo::class,'whyhaffez_submit']);
+            Route::get('/admin/second_whyhaffez/delete{id}',[WhyhaffezSectionTwo::class,'whyhaffez_delete']);
+            Route::get('/admin/post/whyhaffez/second_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionTwo::class,'whyhaffez_edit']);
+            Route::post('/admin/post/whyhaffez/second_whyhaffez/update/{id}',[WhyhaffezSectionTwo::class,'whyhaffez_update']);
+            //Whyhaffez Section 3 Routes
+            Route::view('/admin/post/whyhaffez/third_whyhaffez/whyhaffezadd','admin.post.whyhaffez.third_whyhaffez.whyhaffezadd');
+            Route::post('/admin/post/whyhaffez/third_whyhaffez/whyhaffezsubmit3',[WhyhaffezSectionThree::class,'whyhaffez_submit']);
+            Route::get('/admin/third_whyhaffez/delete{id}',[WhyhaffezSectionThree::class,'whyhaffez_delete']);
+            Route::get('/admin/post/whyhaffez/third_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionThree::class,'whyhaffez_edit']);
+            Route::post('/admin/post/whyhaffez/third_whyhaffez/update/{id}',[WhyhaffezSectionThree::class,'whyhaffez_update']);
+            //Whyhaffez Section 4 Routes
+            Route::view('/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezadd','admin.post.whyhaffez.fourth_whyhaffez.whyhaffezadd');
+            Route::post('/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezsubmit4',[WhyhaffezSectionFour::class,'whyhaffez_submit']);
+            Route::get('/admin/fourth_whyhaffez/delete{id}',[WhyhaffezSectionFour::class,'whyhaffez_delete']);
+            Route::get('/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionFour::class,'whyhaffez_edit']);
+            Route::post('/admin/post/whyhaffez/fourth_whyhaffez/update/{id}',[WhyhaffezSectionFour::class,'whyhaffez_update']);
+            //Whyhaffez Section 5 Routes
+            Route::view('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezadd','admin.post.whyhaffez.fifth_whyhaffez.whyhaffezadd');
+            Route::post('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezsubmit5',[WhyhaffezSectionFive::class,'whyhaffez_submit']);
+            Route::get('/admin/fifth_whyhaffez/delete{id}',[WhyhaffezSectionFive::class,'whyhaffez_delete']);
+            Route::get('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionFive::class,'whyhaffez_edit']);
+            Route::post('/admin/post/whyhaffez/fifth_whyhaffez/update/{id}',[WhyhaffezSectionFive::class,'whyhaffez_update']);
+            //Whyhaffez Section 6 Routes
+            Route::view('/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezadd','admin.post.whyhaffez.sixth_whyhaffez.whyhaffezadd');
+            Route::post('/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezsubmit6',[WhyhaffezSectionSixth::class,'whyhaffez_submit']);
+            Route::get('/admin/sixth_whyhaffez/delete{id}',[WhyhaffezSectionSixth::class,'whyhaffez_delete']);
+            Route::get('/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionSixth::class,'whyhaffez_edit']);
+            Route::post('/admin/post/whyhaffez/sixth_whyhaffez/update/{id}',[WhyhaffezSectionSixth::class,'whyhaffez_update']);
+            //Whyhaffez Section 7 Routes
+            Route::view('/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezadd','admin.post.whyhaffez.seventh_whyhaffez.whyhaffezadd');
+            Route::post('/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezsubmit7',[WhyhaffezSectionSeventh::class,'whyhaffez_submit']);
+            Route::get('/admin/seventh_whyhaffez/delete{id}',[WhyhaffezSectionSeventh::class,'whyhaffez_delete']);
+            Route::get('/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezedit/{id}',[WhyhaffezSectionSeventh::class,'whyhaffez_edit']);
+            Route::post('/admin/post/whyhaffez/seventh_whyhaffez/update/{id}',[WhyhaffezSectionSeventh::class,'whyhaffez_update']);
+        }); 
     Route::group(['middleware' =>['admin_auth']], function()
     {
     //OUR SHEIKH Section Routes
@@ -124,7 +147,7 @@ use App\Http\Controllers\arabicadmin\ArabicFooter;
        Route::get('/admin/oursheikh/oursheikhedit/{id}',[OurSheikh::class,'oursheikh_edit']);
        Route::post('/admin/oursheikh/update/{id}',[OurSheikh::class,'oursheikh_update']);
     //OUR SHEIKH Images & NAMES Section Routes 
-       Route::view('/admin/oursheikh/oursheikhpart/oursheikhadd','admin.oursheikh.oursheikhpart.oursheikhadd');
+       Route::view('/admin/oursheikh/oursheikpart/oursheikhadd','admin.oursheikh.oursheikhpart.oursheikhadd');
        Route::get('/admin/oursheikh/oursheikhpart/oursheikhlist',[OurSheikhSecondSection::class,'oursheikh_listing']);
        Route::post('/admin/oursheikh/oursheikhpart/oursheikhsubmit2',[OurSheikhSecondSection::class,'oursheikh_submit']);
        Route::get('/admin/oursheikh/oursheikhpart/delete{id}',[OurSheikhSecondSection::class,'oursheikh_delete']);
@@ -231,17 +254,57 @@ use App\Http\Controllers\arabicadmin\ArabicFooter;
             
     });
 
-    // ClENT SITE ENGLISH ROUTES
-    Route::group(['namespace' => 'user'],function()
-    {
-        Route::get('/', [EngHafizController::class,'home']);
-        Route::get('/arabic', [EngHafizController::class,'Arabic']);
-        Route::get('/login', [EngHafizController::class,'login']);
-        Route::get('/registration',  [EngHafizController::class,'registration']);   
-    });
-    // ARABIC ROUTES
-    Route::group(['namespace' => 'user'],function()
-    {
-        Route::get('/loginforArabic', [ArabicHafizController::class,'loginforArabic']);
-        Route::get('/registrationforArabic',  [ArabicHafizController::class,'registrationforArabic']);
-    });
+    // =====================================USER ROUTES=========================================
+   // ClENT SITE ENGLISH ROUTES
+  
+   Route::group(['namespace' => 'user'],function()
+   {
+       Route::get('/', [EngHafizController::class,'home']);
+       Route::get('/arabic', [EngHafizController::class,'Arabic']); 
+   });
+    // WEBSITE LINKS  
+        Route::get('our-sheikh', [EngHafizController::class,'OurSheikhs'])->middleware('auth');
+        Route::get('sheikh-details', [EngHafizController::class,'SheikhDetail'])->middleware('auth');
+        Route::get('book-appointment', [EngHafizController::class,'Bappointment'])->middleware('auth');
+        Route::get('lesson', [EngHafizController::class,'myLesson'])->middleware('auth');
+        Route::get('user-dashboard', [EngHafizController::class,'dashboard'])->middleware('auth'); 
+   //nav Links
+        Route::get('/login/student', [RegController::class,'login']);
+        Route::get('/registration',  [RegController::class,'registration']); 
+        Route::get('Client-Dashboard', [EngHafizController::class,'dashboard'])->middleware('auth'); 
+   //Submission Links
+        Route::post('registration-form',[RegController::class,'reg_submit'])->name('user-register');
+        Route::post('dashboard',[RegController::class,'login_submit'])->name('user-dashboard')->middleware('auth');
+        Route::get('user-dashboard',[RegController::class,'dashboard'])->middleware('auth'); 
+        Route::post('user-dashboard/bookings',[BookingController::class,'booking_submit'])->name('submit-your-booking');    
+        
+   //logout
+        // Route::get('/logout', [RegController::class,'logout']);
+   // ARABIC ROUTES
+        Route::group(['namespace' => 'user'],function()
+            {
+                Route::get('/loginforArabic', [ArabicHafizController::class,'loginforArabic']);
+                Route::get('/registrationforArabic',  [ArabicHafizController::class,'registrationforArabic']);
+            });
+            Route::view('/welcome','welcome');
+
+Auth::routes();
+
+Route::get('/login/teacher', [TLoginController::class, 'showteacherLoginForm']);
+Route::post('/login/teacher', [TLoginController::class,'teacherLogin'])->name('teacher-login');
+Route::get('/teacher/register', [TLoginController::class, 'teacherRegisterForm']);
+Route::get('/teacher/login', [TLoginController::class, 'teacherloginLink'])->name('login-link');
+
+Route::get('/register/teacher', [TRegisterController::class,'showteacherRegisterForm']);
+Route::post('/register/teacher', [TRegisterController::class,'createteacher'])->name('teacher-register');
+
+Route::group(['middleware' => 'auth:teacher'], function () {
+    Route::view('/teacher', 'teacher');
+});
+
+Route::get('logout', [LoginController::class,'logout']);
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::view('/', 'welcome');

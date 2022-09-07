@@ -37,8 +37,8 @@
                   <td><img src="{{ asset('storage/app/public/post/arabicadmin/'.$list->image) }}" width="150px"/></td>
                   
                   <td>
-                     <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/post/edit/'.$list->id)}}">Edit</a>
-                     <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/post/delete/'.$list->id)}}">Delete</a>
+                     <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/edit/'.$list->id)}}">Edit</a>
+                     <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/post/delete/'.$list->id)}}">Delete</a>
                   </td>
                 </tr>
                  @endforeach

@@ -22,7 +22,7 @@ class Footer extends Controller
     {
       //validation
       $req->validate([
-        'paragraph'        => 'required|min:200|max:390',
+        'paragraph'        => 'required|max:390',
       ]);
       //array
       $data = array(

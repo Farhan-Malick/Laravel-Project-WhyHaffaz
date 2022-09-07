@@ -19,9 +19,9 @@ class OurSheikh extends Controller
     {
       //validation
       $request->validate([
-        'heading'      => 'required|min:10|max:25',
-        'description1'  => 'required|min:100|max:415',
-        'description2'  => 'required|min:100|max:415',
+        'heading'      => 'required|max:25',
+        'description1'  => 'required|max:415',
+        'description2'  => 'required|max:415',
       ]);
       //array
       $data = array(
@@ -51,9 +51,9 @@ class OurSheikh extends Controller
     {
       //validation
       $request->validate([
-        'heading'      => 'required|min:10|max:25',
-        'description1'  => 'required|min:100|max:415',
-        'description2'  => 'required|min:100|max:415',
+        'heading'      => 'required|max:25',
+        'description1'  => 'required|max:415',
+        'description2'  => 'required|max:415',
         ]);
       //array
       $data = array(

@@ -40,11 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'Admin' => [
-                'driver' => 'session',
-                'provider' => 'Admins',
-                'hash' => false,
-            ],
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers'
+        ],
     ],
 
     /*
@@ -69,14 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'Admins' => [
-                'driver' => 'eloquent',
-                'model' => app\Models\Admin::class,
-            ],
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*

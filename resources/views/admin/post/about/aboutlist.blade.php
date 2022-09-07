@@ -38,8 +38,8 @@
                      <td class="toggle-text" >{{Str::limit($aboutlist->description3, 100)}}</td>
                      <td><img src="{{ asset('storage/app/public/post/about_image/'.$aboutlist->image3) }}" width="150px" height="100px"/></td>
                   <td>
-                     <a  class="btn btn-primary" href="{{('/haffiz/admin/post/about/aboutedit/'.$aboutlist->id)}}">Edit</a>
-                     <a  class="btn btn-danger" href="{{('/haffiz/admin/post/delete'.$aboutlist->id)}}" >Delete</a>
+                     <a  class="btn btn-primary" href="{{URL('/admin/post/about/aboutedit/'.$aboutlist->id)}}">Edit</a>
+                     <a  class="btn btn-danger" href="{{URL('/admin/post/delete'.$aboutlist->id)}}" >Delete</a>
                   </td>
                 </tr>
                  @endforeach

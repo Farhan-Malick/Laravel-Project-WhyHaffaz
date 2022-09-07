@@ -28,7 +28,7 @@
                   <td>{{$list->phone_no}}</td>
                   <td>{{$list->email}}</td>
                   <td>
-                     <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/contact/contactedit/'.$list->id)}}">Edit</a>
+                     <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/contact/contactedit/'.$list->id)}}">Edit</a>
                   </td>
                 </tr>
                  @endforeach

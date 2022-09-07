@@ -15,7 +15,7 @@ class Admin_auth extends Controller
        $password=$request->input('password');
 
        //QUERY BUILDER
-       $result= DB::table('users')
+       $result= DB::table('adminlogin')
        ->where('email',$email)
        ->where('password',$password)
        ->get();
@@ -31,15 +31,12 @@ class Admin_auth extends Controller
             return redirect('/admin/post/list');
         }else{
             $request->session()->flash('msg','Account Is Deactivated.'); 
-            return redirect('admin/login');
+            return redirect('/admin/login');
         }
     }else
     {
          $request->session()->flash('msg','Please Enter Valid Login Details.'); 
-         return redirect('admin/login');
+         return redirect('/admin/login');
     }
-
-
-
     }
 }

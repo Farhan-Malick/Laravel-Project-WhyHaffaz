@@ -34,8 +34,8 @@
                            <td class="toggle-text" >{{$list->description}}</td>
                            <td><img src="{{ asset('storage/app/public/post/whyhaffez_image/'.$list->image) }}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/post/whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/post/whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/post/whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/post/whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                         @endforeach
@@ -85,8 +85,8 @@
                            <td class="toggle-text" >{{$list->description}}</td>
                            <td><img src="{{ asset('storage/app/public/post/whyhaffezsection2/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/post/whyhaffez/second_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/second_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/post/whyhaffez/second_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/second_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -109,11 +109,12 @@
             <!-- WHY_HAFFEZ 3rd SECTION -->
             <div class="card ">
                <div class="card-header">
-                  <h2 >Why-Haffez 3rd Section</h2> </div>
+                  <h2 >Why-Haffez 3rd Section</h2> 
+               </div>
                <!-- <div class="card-header">
                   <a  class="btn btn-success" href="{{ URL('/admin/post/whyhaffez/third_whyhaffez/whyhaffezadd')}}">Add Post</a>
                </div> -->
-               <!-- /.card-header -->
+              
                <div class="card-body">
                   <table id="example1" class="table table-bordered table-striped table-responsive">
                      <thead>
@@ -123,7 +124,7 @@
                         <th width="15%">Title</th>
                            <th width="50%">Description</th>
                            <th width="10%">Image</th>
-                           <th width="25%">Action</th>>
+                           <th width="25%">Action</th>
                      </tr>
                      </thead>
                      <tbody>
@@ -139,8 +140,8 @@
                            <td class="toggle-text" >{{$list->description}}</td>
                            <td><img src="{{ asset('storage/app/public/post/whyhaffezsection3/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/post/whyhaffez/third_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/third_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/post/whyhaffez/third_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/third_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -193,8 +194,8 @@
                            <td class="toggle-text" >{{$list->description}}</td>
                            <td><img src="{{ asset('storage/app/public/post/whyhaffezsection4/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/fourth_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/post/whyhaffez/fourth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/fourth_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -248,8 +249,8 @@
                            <td class="toggle-text" >{{$list->description}}</td>
                            <td><img src="{{ asset('storage/app/public/post/whyhaffezsection5/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/fifth_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/fifth_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -302,8 +303,8 @@
                            <td class="toggle-text" >{{$list->description}}</td>
                            <td><img src="{{ asset('storage/app/public/post/whyhaffezsection6/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/sixth_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/post/whyhaffez/sixth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/sixth_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -357,8 +358,8 @@
                            <td class="toggle-text" >{{$list->description}}</td>
                            <td><img src="{{ asset('storage/app/public/post/whyhaffezsection7/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/seventh_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/post/whyhaffez/seventh_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/seventh_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach

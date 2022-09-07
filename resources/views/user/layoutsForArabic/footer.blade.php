@@ -141,6 +141,7 @@
 <script src="{{ asset('public/user/ar/assets/js/jquery.js')}}"></script>
 <script src="{{ asset('public/user/ar/assets/js/owlcarousel2.js')}}"></script>
 <script src="{{ asset('public/user/ar/assets/js/bootstrap.js')}}"></script>
+<script src="{{ asset('public/user/ar/assets/js/nav.js')}}"></script>
 
 <script>
     jQuery("#carousel").owlCarousel({
@@ -176,7 +177,13 @@
     });
 </script>
 <script>
-    $(document).ready(function(){
+      $(document).ready(function(){
+        $('#arabicNav').onePageNav({
+    currentClass: 'active',
+    changeHash: false,
+    filter: '',
+    easing: 'swing'
+})
         // Add smooth scrolling to all links
         $("a").on('click', function(event) {
 

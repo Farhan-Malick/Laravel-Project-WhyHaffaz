@@ -12,8 +12,8 @@ class ArabicOurSheikhSecondSection extends Controller
     {
       //validation
       $request->validate([
-        'fname'=> 'required|min:3|max:20',
-        'lname'=> 'required|min:3|max:20',
+        'fname'=> 'required|max:20',
+        'lname'=> 'required|max:20',
         'image'=> 'required |mimes:jpg,jpeg,png',
       ]);
     //storing image
@@ -48,8 +48,8 @@ class ArabicOurSheikhSecondSection extends Controller
     {
       //validation
       $request->validate([
-        'fname'=> 'required|min:3|max:20',
-        'lname'=> 'required|min:3|max:20',
+        'fname'=> 'required|max:20',
+        'lname'=> 'required|max:20',
         'image'=> 'mimes:jpg,jpeg,png',
       ]);
       //array

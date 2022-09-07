@@ -19,8 +19,8 @@ class ArabicOurSheikh extends Controller
   {
     //validation
     $request->validate([
-      'heading'      => 'required|min:15|max:35',
-      'description1'  => 'required|min:100|max:440',
+      'heading'      => 'required|max:35',
+      'description1'  => 'required |max:440',
     ]);
     //array
     $data = array(
@@ -49,8 +49,8 @@ class ArabicOurSheikh extends Controller
   {
     //validation
     $request->validate([
-      'heading'      => 'required|min:15|max:35',
-      'description1'  => 'required|min:100|max:440',
+      'heading'      => 'required |max:35',
+      'description1'  => 'required |max:440',
     ]);
     //array
     $data = array(

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class AboutController extends Controller
 {
@@ -15,10 +16,11 @@ class AboutController extends Controller
     {
       //validation
       $request->validate([
-        'title3'        => 'required |min:15|max:30',
-        'heading3'      => 'required|min:8|max:15',  
-        'description3'  => 'required|min:200|max:385',  
+        'title3'        => 'required |max:30',
+        'heading3'      => 'required|max:15',  
+        'description3'  => 'required|max:385',  
         'image3'        =>  'required |mimes: jpg,jpeg,png',
+        Rule::dimensions()->maxWidth(1920)->maxHeight(500)->ratio(3 / 2),
       ]);
   
       //storing image
@@ -55,9 +57,9 @@ class AboutController extends Controller
     {
       //validation
       $request->validate([
-        'title3'        => 'required |min:15|max:30',
-        'heading3'      => 'required|min:8|max:15',  
-        'description3'  => 'required|min:200|max:385',  
+        'title3'        => 'required |max:30',
+        'heading3'      => 'required|max:15',  
+        'description3'  => 'required|max:385',  
         'image3'        =>  'mimes: jpg,jpeg,png',
       ]);
       //array

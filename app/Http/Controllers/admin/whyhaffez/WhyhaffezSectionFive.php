@@ -12,8 +12,8 @@ class WhyhaffezSectionFive extends Controller
     {
       //validation
       $request->validate([
-        'heading'      => 'required |min:15|max:30',
-        'description'  => 'required |min:100|max:410',
+        'heading'      => 'required |max:30',
+        'description'  => 'required |max:410',
         'image'        => 'required |mimes: jpg,jpeg,png',
       ]);
   
@@ -43,15 +43,15 @@ class WhyhaffezSectionFive extends Controller
     function whyhaffez_edit(Request $request , $id)
     {
       $data['fifth_why_result'] = DB::table('fifth_whyhaffezs')->where('id',$id)->get();
-        return view('admin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit',$data);
+        return view('/admin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit',$data);
       
     }
     function whyhaffez_update(Request $request , $id)
     {
       //validation
       $request->validate([
-        'heading'      => 'required |min:15|max:30',
-        'description'  => 'required |min:100|max:410',
+        'heading'      => 'required |max:30',
+        'description'  => 'required |max:410',
         'image'        => 'mimes: jpg,jpeg,png',
       ]);
       //array

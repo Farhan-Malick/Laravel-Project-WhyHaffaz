@@ -43,27 +43,32 @@
             <div class="col-12 col-md-7 mx-auto">
                 <div class="login-wrap">
                     <div class="text-center text-white mb-5">
+                        
+                    <div class="col-sm-12" style="text-align: center; color:gold; font-size:20px">{{session('fail')}}{{session('fail_login')}}</div>
                         <img src="assets/img/haffez-logo.png" class="mb-3" alt="">
-
                         <h2>Sign in for students and elders</h2>
                     </div>
-                    <form class="login-form" action="" method="POST">
+                    <form class="login-form" action="{{ route('user-dashboard')}}" method="POST">
+                    @csrf
+                    <input type="hidden" id="name" name="name" value="">
+                                                            
                         <div class="form-group">
                             <label for="tel">Telephone Number</label>
-                            <input type="tel" class="form-control" id="tel" aria-describedby="emailHelp" placeholder="Telephone Number">
+                            <input type="tel" class="form-control" id="tel" name="phone" aria-describedby="emailHelp" placeholder="Telephone Number">
                         </div>
-
                         <div class="form-group">
                             <label for="password2">Password</label>
-                            <input type="password" class="form-control" id="password2" placeholder="Password">
+                            <input type="password" class="form-control" name="password" id="password2" placeholder="Password">
                         </div>
-
-
+                            <div class="" style="color:gold; ">{{session('msg')}}</div>
                         <div class="custom-control custom-checkbox form-group">
                             <input type="checkbox" class="custom-control-input">
                             <label class="custom-control-label">Remember me when you come in next time</label>
+                         
                         </div>
+                       
                         <button type="submit" class="btn btn-gold">Submit</button>
+                        <span class="ml-5"> Not Registered ? <a href="{{URL('/registration')}}">Register here</a></span>
                     </form>
                 </div>
             </div>
@@ -73,9 +78,9 @@
 </div>
 
 
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/owlcarousel2.js"></script>
-<script src="assets/js/bootstrap.js"></script>
+<script src="{{asset('public/user/assets/js/jquery.js')}}"></script>
+<script src="{{asset('public/user/assets/js/owlcarousel2.js')}}"></script>
+<script src="{{asset('public/user/assets/js/bootstrap.js')}}"></script>
 
 
 

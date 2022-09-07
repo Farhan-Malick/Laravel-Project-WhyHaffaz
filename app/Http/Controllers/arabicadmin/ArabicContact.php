@@ -22,7 +22,7 @@ class ArabicContact extends Controller
     {
       //validation
       $req->validate([
-        'contactus'   =>  'required |min:15|max:30',
+        'contactus'   =>  'required|max:30',
         'phone_no'    =>  'required |numeric|min:10',
         'email'       =>  'required',
       ]);

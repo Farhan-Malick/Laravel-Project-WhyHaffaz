@@ -38,7 +38,6 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
@@ -47,6 +46,7 @@ class Kernel extends HttpKernel
         'admin_auth' => [
             \App\Http\Middleware\adminAuth::class,
         ],
+        
     ];
 
     /**
@@ -57,6 +57,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'alreadyLoggedIn' => \App\Http\Middleware\AlreadyLoggedIn ::class,
+        'user_auth' => \App\Http\Middleware\User_Auth::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

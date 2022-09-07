@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class Post extends Controller
 {
+    function admin()
+    {
+        return view('admin.login');
+    }
     function listing()
     {
         $data['result'] = DB::table('posts')->orderBy('id','desc')->get();
@@ -17,10 +21,10 @@ class Post extends Controller
     {
       //validation
       $req->validate([
-        'title'        => 'required  |min:8|max:30',
-        'description'  => 'required  |min:100|max:155',
-        'title2'        => 'required |min:8|max:30',
-        'description2'  => 'required |min:100|max:155',
+        'title'        => 'required  |max:30',
+        'description'  => 'required  |max:155',
+        'title2'        => 'required |max:30',
+        'description2'  => 'required |max:155',
         'image'        =>  'required |mimes: jpg,jpeg,png',
         'image2'        => 'required |mimes: jpg,jpeg,png'
       ]);
@@ -68,10 +72,10 @@ class Post extends Controller
     {
       //validation
       $req->validate([
-        'title'        => 'required  |min:8|max:30',
-        'description'  => 'required  |min:100|max:155',
-        'title2'        => 'required |min:8|max:30',
-        'description2'  => 'required |min:100|max:155',
+        'title'        => 'required  |max:30',
+        'description'  => 'required  |max:155',
+        'title2'        => 'required |max:30',
+        'description2'  => 'required |max:155',
         'image'        =>  'mimes: jpg,jpeg,png',
         'image2'        => 'mimes: jpg,jpeg,png'
       ]);

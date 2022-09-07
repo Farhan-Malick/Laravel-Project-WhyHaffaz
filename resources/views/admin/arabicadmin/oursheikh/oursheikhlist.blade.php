@@ -35,8 +35,8 @@
                      <td>{{$list->heading}}</td>
                      <td class="toggle-text" >{{Str::limit($list->description1, 130)}}
                   <td>
-                     <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/oursheikh/oursheikhedit/'.$list->id)}}">Edit</a>
-                     <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/oursheikh/delete'.$list->id)}}" >Delete</a>
+                     <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/oursheikh/oursheikhedit/'.$list->id)}}">Edit</a>
+                     <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/oursheikh/delete'.$list->id)}}" >Delete</a>
                   </td>
                 </tr>
                  @endforeach
@@ -82,8 +82,8 @@
                      <td>{{$list->lname}}</td>
                      <td><img src="{{ asset('storage/app/public/post/arabic_oursheikhs/'.$list->image) }}" width="150px" height="100px"/></td>
                   <td>
-                     <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/oursheikh/oursheikhpart/oursheikhedit/'.$list->id)}}">Edit</a>
-                     <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/oursheikh/oursheikhpart/delete'.$list->id)}}" >Delete</a>
+                     <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/oursheikh/oursheikhpart/oursheikhedit/'.$list->id)}}">Edit</a>
+                     <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/oursheikh/oursheikhpart/delete'.$list->id)}}" >Delete</a>
                   </td>
                 </tr>
                  @endforeach

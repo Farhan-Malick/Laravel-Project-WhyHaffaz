@@ -143,6 +143,12 @@
 <script src="{{ asset('public/user/assets/js/jquery.js')}}"></script>
 <script src="{{ asset('public/user/assets/js/owlcarousel2.js')}}"></script>
 <script src="{{ asset('public/user/assets/js/bootstrap.js')}}"></script>
+<script src="{{ asset('public/user/assets/js/nav.js')}}"></script>
+<script src="{{ asset('public/user/assets/js/bootstrap-datepicker.js')}}"></script>
+<script>
+    $('#datepick input').datepicker({
+    });
+</script>
 
 <script>
     jQuery("#carousel").owlCarousel({
@@ -179,6 +185,12 @@
 </script>
 <script>
     $(document).ready(function(){
+        $('#nav').onePageNav({
+    currentClass: 'active',
+    changeHash: false,
+    filter: '',
+    easing: 'swing'
+})
         // Add smooth scrolling to all links
         $("a").on('click', function(event) {
 

@@ -22,8 +22,8 @@ class Contact extends Controller
     {
       //validation
       $req->validate([
-        'contactus'   =>  'required |min:15|max:30',
-        'phone_no'    =>  'required |numeric|min:10',
+        'contactus'   =>  'required |max:30',
+        'phone_no'    =>  'required |numeric',
         'email'       =>  'required',
        
       ]);

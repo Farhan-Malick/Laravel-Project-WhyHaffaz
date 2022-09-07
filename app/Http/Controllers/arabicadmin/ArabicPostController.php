@@ -17,8 +17,8 @@ class ArabicPostController extends Controller
     {
       //validation
       $req->validate([
-        'title'        =>  'required  |min:8|max:30',
-        'description'  => 'required  |min:60|max:155',
+        'title'        =>  'required  |max:30',
+        'description'  => 'required  |max:155',
         'image'        =>  'required |mimes: jpg,jpeg,png'
       ]);
        //storing image
@@ -52,8 +52,8 @@ class ArabicPostController extends Controller
     {
       //validation
       $req->validate([
-        'title'        =>  'required  |min:8|max:30',
-        'description'  => 'required  |min:60|max:155',
+        'title'        =>  'required  |max:30',
+        'description'  => 'required  |max:155',
         'image'        =>  'mimes: jpg,jpeg,png'
       ]);
       //array

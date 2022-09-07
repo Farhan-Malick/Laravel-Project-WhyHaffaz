@@ -17,9 +17,9 @@ class ArabicAboutController extends Controller
     {
       //validation
       $request->validate([
-        'title3'        => 'required |min:15|max:30',
-        'heading3'      => 'required|min:8|max:15',  
-        'description3'  => 'required|min:200|max:385',  
+        'title3'        => 'required |max:30',
+        'heading3'      => 'required|max:20',  
+        'description3'  => 'required|max:385',  
         'image3'        =>  'required |mimes: jpg,jpeg,png',
       ]);
   
@@ -57,9 +57,9 @@ class ArabicAboutController extends Controller
     {
       //validation
       $request->validate([
-        'title3'        => 'required |min:15|max:30',
-        'heading3'      => 'required|min:8|max:15',  
-        'description3'  => 'required|min:200|max:385',  
+        'title3'        => 'required |max:30',
+        'heading3'      => 'required|max:20',  
+        'description3'  => 'required|max:385',  
         'image3'        =>  'mimes: jpg,jpeg,png',
       ]);
       //array

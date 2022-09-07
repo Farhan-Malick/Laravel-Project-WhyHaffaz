@@ -22,7 +22,7 @@ class ArabicFooter extends Controller
     {
       //validation
       $req->validate([
-        'paragraph'        => 'required|min:150|max:390',
+        'paragraph'        => 'required|max:390',
       ]);
       //array
       $data = array(

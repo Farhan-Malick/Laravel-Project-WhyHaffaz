@@ -5,7 +5,9 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use App\Models\Booking;
+use Session;
 class EngHafizController extends Controller
 {
     public function login()
@@ -16,6 +18,36 @@ class EngHafizController extends Controller
     {
         return view('user.english.registration');
     }
+    
+    public function dashboard()
+    {
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
+            return view('/user/english/user/user-dashboard')->with('bookings',$user->bookings);        
+    }
+    public function myLesson()
+    {  
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('/user/english/user/user-dashboard')->with('bookings',$user->bookings);
+            
+    }
+    public function OurSheikhs()
+    {   
+        $data['teacher'] = DB::table('teachers')->get();
+            return view('user.english.user.our-sheikh',$data);
+    }
+    public function SheikhDetail()
+    {
+        $data['appointments'] = DB::table('appointments')->get();
+        return view('user.english.user.sheikh-details',$data);
+        
+    }
+    public function Bappointment()
+    {
+        return view('user.english.user.Book-appointment');
+    }
+    
     public function home()
     {
         $data['result'] = DB::table('posts')->get();

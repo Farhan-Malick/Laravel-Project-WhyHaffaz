@@ -24,8 +24,8 @@ class ArabicWhyHaffezController extends Controller
     {
       //validation
       $request->validate([
-        'heading'      => 'required |min:15|max:30',
-        'description'  => 'required |min:60|max:146',
+        'heading'      => 'required |max:30',
+        'description'  => 'required |max:146',
         'image'        => 'required |mimes: jpg,jpeg,png',
       ]);
       //storing image
@@ -54,15 +54,15 @@ class ArabicWhyHaffezController extends Controller
     function whyhaffez_edit(Request $request , $id)
     {
       $data['why_result'] = DB::table('arabicwhyhaffezs')->where('id',$id)->get();
-        return view('admin/arabicadmin/post/whyhaffez/whyhaffezedit',$data);
+        return view('/admin/arabicadmin/post/whyhaffez/whyhaffezedit',$data);
       
     }
     function whyhaffez_update(Request $request , $id)
     {
       //validation
       $request->validate([
-        'heading'      => 'required |min:15|max:30',
-        'description'  => 'required |min:60|max:146',
+        'heading'      => 'required |max:30',
+        'description'  => 'required |max:146',
         'image'        => 'mimes: jpg,jpeg,png',
       ]);
       //array

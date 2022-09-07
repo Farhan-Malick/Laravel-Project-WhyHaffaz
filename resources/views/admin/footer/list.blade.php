@@ -24,7 +24,7 @@
                   <td>{{$list->id}}</td>
                   <td>{{$list->paragraph}}</td>
                   <td>
-                     <a  class="btn btn-primary" href="{{('/haffiz/admin/footer/footeredit/'.$list->id)}}">Edit</a>
+                     <a  class="btn btn-primary" href="{{URL('/admin/footer/footeredit/'.$list->id)}}">Edit</a>
                   </td>
                 </tr>
                  @endforeach

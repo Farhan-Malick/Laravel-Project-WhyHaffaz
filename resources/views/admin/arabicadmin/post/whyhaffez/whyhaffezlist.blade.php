@@ -34,8 +34,8 @@
                            <td class="toggle-text" >{{Str::limit($list->description, 50)}}</td>
                            <td><img src="{{ asset('storage/app/public/post/arabic_whyhaffez_image/'.$list->image) }}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/post/whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/post/whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/post/whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                         @endforeach
@@ -85,8 +85,8 @@
                            <td class="toggle-text" >{{Str::limit($list->description, 50)}}</td>
                            <td><img src="{{ asset('storage/app/public/post/arabic_whyhaffezsection2/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/post/whyhaffez/second_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/second_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/whyhaffez/second_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/second_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -137,8 +137,8 @@
                            <td class="toggle-text" >{{Str::limit($list->description, 50)}}</td>
                            <td><img src="{{ asset('storage/app/public/post/arabic_whyhaffezsection3/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/arabicadmin/admin/post/whyhaffez/third_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/arabicadmin/admin/third_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/whyhaffez/third_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/third_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -189,8 +189,8 @@
                            <td class="toggle-text" >{{Str::limit($list->description, 50)}}</td>
                            <td><img src="{{ asset('storage/app/public/post/arabic_whyhaffezsection4/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/post/whyhaffez/fourth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/fourth_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/whyhaffez/fourth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/fourth_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -242,8 +242,8 @@
                            <td class="toggle-text" >{{Str::limit($list->description, 50)}}</td>
                            <td><img src="{{ asset('storage/app/public/post/arabic_whyhaffezsection5/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/fifth_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/whyhaffez/fifth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/fifth_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -294,8 +294,8 @@
                            <td class="toggle-text" >{{Str::limit($list->description, 50)}}</td>
                            <td><img src="{{ asset('storage/app/public/post/arabic_whyhaffezsection6/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/post/whyhaffez/sixth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/sixth_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/whyhaffez/sixth_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/sixth_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
@@ -346,8 +346,8 @@
                            <td class="toggle-text" >{{Str::limit($list->description, 50)}}</td>
                            <td><img src="{{ asset('storage/app/public/post/arabic_whyhaffezsection7/'.$list->image )}}" width="150px" height="100px"/></td>
                            <td>
-                              <a  class="btn btn-primary" href="{{('/haffiz/admin/arabicadmin/post/whyhaffez/seventh_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
-                              <a  class="btn btn-danger" href="{{('/haffiz/admin/arabicadmin/seventh_whyhaffez/delete'.$list->id)}}" >Delete</a>
+                              <a  class="btn btn-primary" href="{{URL('/admin/arabicadmin/post/whyhaffez/seventh_whyhaffez/whyhaffezedit/'.$list->id)}}">Edit</a>
+                              <a  class="btn btn-danger" href="{{URL('/admin/arabicadmin/seventh_whyhaffez/delete'.$list->id)}}" >Delete</a>
                            </td>
                         </tr>
                      @endforeach
